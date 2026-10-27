@@ -1,0 +1,12 @@
+# wrangler.toml  （abema1 / abema2 用に name だけ変えて 2 回デプロイする）
+name = "abema1"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+workers_dev = true
+
+# これが肝。fetch 先（abema.tv）に近い拠点で実行されるようになる
+[placement]
+mode = "smart"
+
+[vars]
+HOME = "https://abema.tv/"

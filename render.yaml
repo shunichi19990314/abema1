@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: abema-proxy
+    runtime: node
+    plan: free
+    buildCommand: "npm install --omit=dev"
+    startCommand: "node server.js"
+    healthCheckPath: /__info
+    envVars:
+      - key: WORKERS
+        value: "abema1=https://abema1.YOUR-SUBDOMAIN.workers.dev"
+      - key: LINKS_PW
+        value: "change-me"
+      - key: LINKS
+        value: "ABEMA=https://abema.tv/,ABEMA TIMES=https://times.abema.tv/"
